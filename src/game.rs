@@ -8,9 +8,26 @@ pub struct Game {
 
 #[derive(Deserialize)]
 pub struct GameData {
+    pub teams: Teams,
+    pub datetime: DateTime,
+}
+
+#[derive(Deserialize)]
+pub struct DateTime {
+    #[serde(rename = "dateTime")]
+    pub date_time: String,
+    #[serde(rename = "endDateTime")]
+    pub end_date_time: String,
+}
+
+#[derive(Deserialize)]
+pub struct Teams {
+    pub home: Home,
+}
+
+#[derive(Deserialize)]
+pub struct Home {
     pub venue: Venue,
-    #[serde(rename = "gameInfo")]
-    pub game_info: GameInfo,
 }
 
 #[derive(Deserialize)]
@@ -23,14 +40,4 @@ pub struct Venue {
 pub struct TimeZone {
     pub offset: i8,
     pub tz: String,
-}
-
-#[derive(Deserialize)]
-pub struct GameInfo {
-    #[serde(rename = "firstPitch")]
-    pub first_pitch: String,
-    #[serde(rename = "gameDurationMinutes")]
-    pub game_duration_minutes: i64,
-    #[serde(rename = "delayDurationMinutes")]
-    pub delay_duration_minutes: Option<i64>,
 }

@@ -1,9 +1,9 @@
 use dioxus::core::to_owned;
 use dioxus::prelude::*;
 use futures::StreamExt;
-use mlb_time_puller::get_nhl_times;
-use mlb_time_puller::teams::{Team, TEAMS};
-use mlb_time_puller::timezone::Timezone;
+use nhl_time_puller::get_nhl_times;
+use nhl_time_puller::teams::{Team, TEAMS};
+use nhl_time_puller::timezone::Timezone;
 
 fn main() {
     dioxus::web::launch(app);
@@ -37,7 +37,6 @@ fn app(cx: Scope) -> Element {
             let venue_start = row.next().unwrap();
             let venue_end = row.next().unwrap();
             let duration = row.next().unwrap();
-            let delay = row.next().unwrap();
             let start = row.next().unwrap();
             let end = row.next().unwrap();
             let broadcasts = row.next().unwrap().replace('.', ",");
@@ -61,10 +60,6 @@ fn app(cx: Scope) -> Element {
                     td {
                         class: "center",
                         "{duration}"
-                    }
-                    td {
-                        class: "center",
-                        "{delay}"
                     }
                     td {
                         class: "center",
@@ -99,9 +94,6 @@ fn app(cx: Scope) -> Element {
                     }
                     th {
                         "Game Duration"
-                    }
-                    th {
-                        "Delay Duration"
                     }
                     th {
                         "Converted Start Time"

@@ -626,20 +626,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "mlb_time_puller"
-version = "0.1.0"
-dependencies = [
- "dioxus",
- "futures",
- "num_enum",
- "reqwest",
- "serde",
- "serde_json",
- "time",
- "web-sys",
-]
-
-[[package]]
 name = "native-tls"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -655,6 +641,20 @@ dependencies = [
  "security-framework",
  "security-framework-sys",
  "tempfile",
+]
+
+[[package]]
+name = "nhl_time_puller"
+version = "0.1.0"
+dependencies = [
+ "dioxus",
+ "futures",
+ "num_enum",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "time",
+ "web-sys",
 ]
 
 [[package]]
