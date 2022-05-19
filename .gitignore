@@ -4,3 +4,6 @@ dist
 *.csv
 *.iml
 Trunk.toml
+*.toml
+*.lock
+/src
